@@ -19,6 +19,7 @@ RSpec.describe CommentsController, type: :controller do
       gram = FactoryBot.create(:gram)
   post :create, params: { gram_id: gram.id, comment: { message: 'awesome gram' } }
   expect(response).to redirect_to new_user_session_path
+ 
     end
 
     it "should return http status code of not found if the gram isn't found" do
