@@ -4,7 +4,7 @@ class GramsController < ApplicationController
   def update
     @gram = Gram.find_by_id(params[:id])
     return render_not_found if @gram.blank?
-     return render_not_found(:forbidden) if @gram.user != current_user
+    return render_not_found(:forbidden) if @gram.user != current_user
       
     @gram.update_attributes(gram_params)
     if @gram.valid?
@@ -51,10 +51,11 @@ class GramsController < ApplicationController
     else
     render :new, status: :unprocessable_entity
     end 
+  end  
 
   
 
-  end 
+ 
 
   private 
   def gram_params
